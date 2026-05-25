@@ -1,0 +1,1036 @@
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #1e1e1e;
+}
+
+/* --- TABLE SECTION --- */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-base: #252526;
+    -fx-control-inner-background: #252526;
+    -fx-selection-bar: #004b75; /* Deep slate-blue selection accent */
+    -fx-selection-bar-text: #ffffff;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #e0e0e0;
+    -fx-padding: 3 10 3 10; 
+}
+
+/* ── Table Header Borders ── */
+.table-view .column-header {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #1e1e1e;    
+    -fx-border-width: 0 1px 1px 0; 
+    -fx-border-style: solid;
+}
+
+/* Fix the very last column header's right border if it looks cut off */
+.table-view .column-header:last-visible {
+    -fx-border-width: 0 0 1px 0; 
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #b0b0b0;
+    -fx-font-weight: bold;
+    -fx-padding: 0 10 0 10;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #2a2a2b;
+}
+
+#speedCol .label, #sizeCol .label, #statusCol .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ICONS */
+.icon-label {
+    -fx-font-family: "Font Awesome 7 Free Solid";
+    -fx-font-size: 14px;
+}
+
+/* --- URL INPUT BAR --- */
+.url-container {
+    -fx-padding: 20 0 20 0;
+}
+
+.url-field-large {
+    -fx-pref-height: 35px;
+    -fx-font-size: 14px;
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42; 
+    -fx-border-width: 1 0 1 1; 
+    -fx-border-radius: 8 0 0 8;
+    -fx-background-radius: 8 0 0 8;
+    -fx-padding: 0 15 0 15;
+    -fx-text-fill: #ffffff;
+    -fx-focus-color: transparent;
+}
+
+.url-field-large:focused {
+    -fx-border-color: #2ecc71; /* Kept clean theme brand signature */
+    -fx-border-width: 2 0 2 2;
+    -fx-effect: dropshadow(three-pass-box, rgba(46, 204, 113, 0.15), 5, 0, 0, 0);
+}
+
+.url-button-large {
+    -fx-pref-height: 35px;
+    -fx-min-width: 140px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 0 8 8 0;
+    -fx-border-radius: 0 8 8 0;
+    -fx-cursor: hand;
+}
+
+/* --- PROGRESS BAR TRACK --- */
+.progress-bar .track {
+    -fx-background-color: #2d2d2d;
+    -fx-background-radius: 3;
+    -fx-background-insets: 0; 
+    -fx-padding: 10; 
+}
+
+/* --- THE GLOSSY BAR --- */
+.progress-bar .bar {
+    -fx-background-radius: 3;
+    -fx-background-insets: 0;
+    -fx-background-color: 
+        linear-gradient(to bottom, 
+            rgba(255,255,255,0.2) 0%, 
+            rgba(255,255,255,0.05) 50%, 
+            rgba(0,0,0,0.15) 51%, 
+            rgba(0,0,0,0.25) 100%),
+        #2980b9; 
+}
+
+/* --- STATE COLORS (SHINY & PADDED) --- */
+.progress-bar-downloading .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.2)),
+        linear-gradient(to bottom, #3498db, #1f618d);
+}
+
+.progress-bar.state-connecting .bar {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #21618c);
+}
+
+.progress-bar-stopped .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.25)),
+        linear-gradient(to bottom, #a1887f, #5d4037) !important;
+}
+
+.progress-bar-completed .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.25)),
+        linear-gradient(to bottom, #2ecc71, #196f3d) !important;
+}
+
+.progress-bar-failed .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.25)),
+        linear-gradient(to bottom, #e74c3c, #78241c) !important;
+}
+
+.progress-bar-merging .bar {
+    -fx-background-color: linear-gradient(to bottom, #af7ac5, #5b2c6f);
+}
+
+/* ── PROGRESS LABEL ───────────────────────────────── */
+.progress-label {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.85), 1, 0, 0, 1);
+}
+
+/* ── DIALOGS ──────────────────────────────────────── */
+.dialog-root { 
+    -fx-background-color: #1e1e1e; 
+}
+
+.dialog-pane {
+    -fx-padding: 0 0 8 0; 
+    -fx-background-color: #252526;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-padding: 8; 
+}
+
+.confirm-dialog-root {
+    -fx-padding: 0 0 8 0;
+}
+
+.dialog-pane .button {
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+    -fx-padding: 5 5;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #333337;
+}
+
+.dialog-pane .button:default {
+    -fx-background-color: linear-gradient(to bottom, #27ae60, #1e8449);
+    -fx-text-fill: white;
+    -fx-border-color: #145a32;
+    -fx-border-radius: 5;
+}
+
+.dialog-pane .button:default:hover {
+    -fx-background-color: #2ecc71;
+    -fx-effect: dropshadow(three-pass-box, rgba(46, 204, 113, 0.3), 10, 0, 0, 0);
+}
+
+.dialog-pane .button:cancel {
+    -fx-background-color: linear-gradient(to bottom, #c0392b, #962d22);
+    -fx-text-fill: white;
+    -fx-border-color: #641e16;
+    -fx-border-radius: 3;
+}
+
+.dialog-pane .button:cancel:hover {
+    -fx-background-color: #e74c3c;
+    -fx-effect: dropshadow(three-pass-box, rgba(231, 76, 60, 0.3), 10, 0, 0, 0);
+}
+
+.dialog-field-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #b0b0b0;
+    -fx-font-size: 12px;
+}
+
+.dialog-mono-value {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #dcdcdc;
+}
+
+.dialog-size-value {
+    -fx-text-fill: #2ecc71;
+    -fx-font-weight: bold;
+}
+
+.dialog-value { 
+    -fx-text-fill: #ffffff; 
+}
+
+.dialog-path-field {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 6;
+}
+.dialog-path-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #252526;
+}
+
+.btn-browse {
+    -fx-background-color: #333337;
+    -fx-border-color: #555559;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #e0e0e0;
+    -fx-cursor: hand;
+    -fx-padding: 6 12;
+}
+.btn-browse:hover { 
+    -fx-background-color: #3e3e42; 
+}
+
+/* ── MANUAL ADD DIALOG ─────────────────────────────── */
+.manual-add-dialog {
+    -fx-background-color: #252526;
+}
+
+.manual-add-dialog .text-field {
+    -fx-font-family: 'Consolas', 'Monospace';
+    -fx-font-size: 12px;
+    -fx-padding: 6;
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-text-fill: #ffffff;
+}
+
+.manual-add-dialog .text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #252526;
+}
+
+.manual-add-dialog .header-panel {
+    -fx-background-color: #2d2d30;
+}
+.manual-add-dialog .header-panel .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.manual-add-dialog .button {
+    -fx-cursor: hand;
+}
+.manual-add-dialog .button:default {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: 500;
+}
+
+/* ── VIDEO DIALOGS ─────────────────────────────────── */
+.video-dialog-pane { -fx-background-color: #252526; }
+.video-dialog-content { -fx-background-color: #252526; }
+
+.video-dialog-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.video-dialog-subtitle {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 12px;
+}
+
+.dialog-section-cap {
+    -fx-text-fill: #777777;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.video-url-field {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #666666;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1 0 1 1;
+    -fx-background-radius: 4 0 0 4;
+    -fx-border-radius: 4 0 0 4;
+    -fx-pref-height: 42px;
+    -fx-padding: 0 10;
+}
+.video-url-field:focused {
+    -fx-border-color: #27ae60;
+    -fx-background-color: #252a27;
+}
+
+.video-paste-btn {
+    -fx-background-color: #333337;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 0 4 4 0;
+    -fx-border-radius: 0 4 4 0;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1;
+    -fx-pref-height: 42px;
+    -fx-padding: 0 18;
+}
+.video-paste-btn:hover { 
+    -fx-background-color: #3e3e42; 
+}
+
+.video-quality-combo {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-radius: 4;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+.video-quality-combo .list-cell {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #ffffff;
+}
+
+.dialog-btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #2980b9, #1a6fa8);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-min-width: 100px;
+    -fx-pref-height: 34px;
+    -fx-padding: 0 24;
+    -fx-cursor: hand;
+}
+.dialog-btn-primary:hover {
+    -fx-background-color: #3498db;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.4), 8, 0, 0, 0);
+}
+
+.dialog-btn-cancel {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-min-width: 100px;
+    -fx-pref-height: 34px;
+    -fx-padding: 0 24;
+    -fx-cursor: hand;
+}
+.dialog-btn-cancel:hover {
+    -fx-background-color: #ff5e4d;
+    -fx-effect: dropshadow(three-pass-box, rgba(231,76,60,0.4), 8, 0, 0, 0);
+}
+
+/* Target the ComboBox button container itself */
+.video-quality-combo {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+
+/* Force the main displayed text inside the combo button to be white */
+.video-quality-combo .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* Target the arrow button block */
+.video-quality-combo .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* Force the arrow icon to be light gray instead of black */
+.video-quality-combo .arrow {
+    -fx-background-color: #b0b0b0;
+}
+
+/* ─── DROPDOWN POPUP LIST OVERLAY ─── */
+
+/* Target the popup container shell */
+.video-quality-combo .combo-box-popup .list-view {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.45), 6, 0, 0, 3);
+}
+
+/* Style the rows inside the dropdown list */
+.video-quality-combo .combo-box-popup .list-cell {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 6 12;
+}
+
+/* Row hover state */
+.video-quality-combo .combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: #3e3e42;
+    -fx-text-fill: #ffffff;
+}
+
+/* Selected row state */
+.video-quality-combo .combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #004b75; /* Matches your slate-blue table row selection */
+    -fx-text-fill: #ffffff;
+}
+
+/* ==========================================================================
+   SETTINGS WINDOW - TARGETED FLATTENED PROFILE (DARK SKIN)
+   ========================================================================== */
+
+/* ── MAIN SCENE CONTAINER ── */
+.root {
+    -fx-background-color: #1e1e1e !important;
+}
+
+/* ── TABPANE STRUCTURAL RESTORATION ── */
+.tab-pane {
+    -fx-background-color: transparent !important;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #252526 !important;
+    -fx-padding: 0 0 2px 0 !important;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: transparent !important;
+}
+
+/* ── TAB INDIVIDUAL COMPONENT BUTTONS ── */
+.tab-pane .tab {
+    -fx-background-color: #2d2d2d !important;
+    -fx-background-insets: 0 !important;
+    -fx-background-radius: 4px 4px 0 0 !important;
+    -fx-padding: 8px 16px 8px 16px !important;
+    -fx-cursor: hand !important;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #969696 !important;
+    -fx-font-size: 13px !important;
+    -fx-font-weight: normal !important;
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: #333337 !important;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #1e1e1e !important;
+    -fx-border-color: #3e3e42 #3e3e42 transparent #3e3e42 !important;
+    -fx-border-width: 1px 1px 0 1px !important;
+    -fx-border-radius: 4px 4px 0 0 !important;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: bold !important;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: #1e1e1e !important;
+    -fx-border-width: 0 !important;
+    -fx-padding: 0 !important;
+}
+
+/* ── TARGETED LABEL EXPLICIT VISIBILITY RULES ── */
+.settings-label {
+    -fx-text-fill: #e0e0e0 !important;
+    -fx-font-size: 13px !important;
+}
+
+.settings-title-label {
+    -fx-text-fill: #ffffff !important;
+    -fx-font-size: 18px !important;
+    -fx-font-weight: bold !important;
+}
+
+.settings-description-label {
+    -fx-text-fill: #a0a0a0 !important;
+    -fx-font-size: 12px !important;
+    -fx-text-alignment: center;
+}
+
+.settings-bold-label {
+    -fx-text-fill: #b0b0b0 !important;
+    -fx-font-weight: bold !important;
+    -fx-font-size: 13px !important;
+}
+
+.settings-qr-label {
+    -fx-text-fill: #777777 !important;
+    -fx-font-size: 10px !important;
+}
+
+.settings-status-toast {
+    -fx-text-fill: #2ecc71 !important;
+    -fx-font-size: 11px !important;
+}
+
+/* ── INPUT FIELDS (TEXTFIELD) ── */
+.tab-pane .text-field {
+    -fx-background-color: #2d2d2d !important;
+    -fx-border-color: #3e3e42 !important;
+    -fx-border-width: 1px !important;
+    -fx-border-radius: 4px !important;
+    -fx-background-radius: 4px !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-family: "Segoe UI", sans-serif !important;
+    -fx-font-size: 13px !important;
+    -fx-padding: 5px 8px !important;
+}
+
+.tab-pane .text-field:readonly {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #888888 !important;
+    -fx-border-color: #2d2d2d !important;
+}
+
+/* ── SELECTION CONTROLS (COMBOBOX & CHECKBOX) ── */
+.tab-pane .combo-box {
+    -fx-background-color: #2d2d2d !important;
+    -fx-border-color: #3e3e42 !important;
+    -fx-border-radius: 4px !important;
+    -fx-background-radius: 4px !important;
+}
+
+.tab-pane .combo-box .label {
+    -fx-text-fill: #ffffff !important;
+}
+
+.tab-pane .combo-box .arrow {
+    -fx-background-color: #aaaaaa !important;
+}
+
+.tab-pane .check-box {
+    -fx-text-fill: #e0e0e0 !important;
+    -fx-cursor: hand !important;
+}
+
+.tab-pane .check-box .box {
+    -fx-background-color: #2d2d2d !important;
+    -fx-border-color: #3e3e42 !important;
+    -fx-border-radius: 3px !important;
+    -fx-background-radius: 3px !important;
+}
+
+.tab-pane .check-box:selected .mark {
+    -fx-background-color: #2ecc71 !important;
+}
+
+/* ── INTERACTIVE BUTTON COMPONENT BASE ELEMENTS ── */
+.tab-pane .button {
+    -fx-background-color: linear-gradient(to bottom, #3a3a3b, #2d2d30) !important;
+    -fx-text-fill: #e0e0e0 !important;
+    -fx-border-color: #555559 !important;
+    -fx-border-radius: 4px !important;
+    -fx-background-radius: 4px !important;
+    -fx-font-weight: 500 !important;
+    -fx-cursor: hand !important;
+    -fx-padding: 5px 12px !important;
+}
+
+.tab-pane .button:hover {
+    -fx-background-color: #3e3e42 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-border-color: #66666c !important;
+}
+
+/* ── GLOBAL SCREEN INTERACTION FOOTER BUTTONS ── */
+.root > .hbox .button {
+    -fx-border-radius: 4px !important;
+    -fx-background-radius: 4px !important;
+    -fx-padding: 6px 16px !important;
+    -fx-cursor: hand !important;
+}
+
+/* Bluish Save Action Module Button Override */
+.root > .hbox .settings-save-button {
+    -fx-background-color: linear-gradient(to bottom, #3498db 0%, #2980b9 45%, #2471a3 50%, #1b4f72 100%) !important;
+    -fx-border-color: #154e75 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: bold !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 3, 0, 0, 1);
+}
+
+.root > .hbox .settings-save-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2 0%, #3498db 45%, #2e86c1 50%, #21618c 100%) !important;
+    -fx-border-color: #1b4f72 !important;
+}
+
+/* Reddish Cancel Action Module Button Override */
+.root > .hbox .settings-cancel-button {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c 0%, #c0392b 45%, #a93226 50%, #7b241c 100%) !important;
+    -fx-border-color: #641e16 !important;
+    -fx-text-fill: #f5b7b1 !important;
+    -fx-font-weight: 500 !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 3, 0, 0, 1);
+}
+
+.root > .hbox .settings-cancel-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ec7063 0%, #e74c3c 45%, #cb4335 50%, #943126 100%) !important;
+    -fx-border-color: #7b241c !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+/* ==========================================================================
+   SETTINGS FOOTER BUTTONS (FORCED ACCENTS - LESS GLOSSY & LIGHTER)
+   ========================================================================== */
+
+/* Bluish Save Button Override */
+.button.settings-save-button {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #3498db) !important;
+    -fx-border-color: #2471a3 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: bold !important;
+}
+
+.button.settings-save-button:hover {
+    -fx-brightness: 1.12 !important;
+}
+
+/* Reddish Cancel Button Override */
+.button.settings-cancel-button {
+    -fx-background-color: linear-gradient(to bottom, #ec7063, #e74c3c) !important;
+    -fx-border-color: #b03a2e !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: 500 !important;
+}
+
+.button.settings-cancel-button:hover {
+    -fx-brightness: 1.12 !important;
+}
+
+
+/* ==========================================================================
+   COMBOBOX DROPDOWN INVISIBILITY FIX
+   ========================================================================== */
+
+/* Style the ComboBox base field container */
+.combo-box {
+    -fx-background-color: #2d2d2d !important;
+    -fx-border-color: #3e3e42 !important;
+    -fx-border-radius: 4px !important;
+    -fx-background-radius: 4px !important;
+}
+
+/* Force the selected visible item text inside the box to be white */
+.combo-box .list-cell {
+    -fx-text-fill: #ffffff !important;
+}
+
+/* Target the dropdown popup container overlay globally */
+.combo-box-popup .list-view {
+    -fx-background-color: #2d2d2d !important;
+    -fx-border-color: #3e3e42 !important;
+    -fx-border-width: 1px !important;
+}
+
+/* Force dropdown items rows text to be visible (white on dark background) */
+.combo-box-popup .list-cell {
+    -fx-background-color: #2d2d2d !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-padding: 6px 12px !important;
+}
+
+/* Hover state inside dropdown menu */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #3e3e42 !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+/* Selected item state inside dropdown menu */
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #2980b9 !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+
+/* ==========================================
+   TOOLBAR CONTAINMENT & SPACING MODIFICATIONS
+   ========================================== */
+.tool-bar {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #1e1e1e;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 20px 15px 20px 15px;
+    -fx-spacing: 8px; 
+}
+
+.tool-bar .separator:vertical .line {
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-width: 0 1 0 0;
+    -fx-min-height: 24px;
+}
+
+/* ==========================================
+   UNIFORM LARGE SQUARE BUTTON GEOMETRY
+   ========================================== */
+.toolbar-btn {
+    -fx-min-width: 38px;
+    -fx-max-width: 38px;
+    -fx-min-height: 38px;
+    -fx-max-height: 38px;
+    -fx-alignment: CENTER;
+    -fx-content-display: GRAPHIC_ONLY;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.45), 4, 0, 0, 1.5);
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.toolbar-btn:hover {
+    -fx-brightness: 1.18;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0, 0, 1.5);
+}
+
+.toolbar-btn:pressed {
+    -fx-brightness: 0.8;
+    -fx-translate-y: 1px;
+}
+
+.toolbar-btn .icon-font-white {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px; 
+    -fx-alignment: CENTER;
+    -fx-font-family: "Font Awesome 7 Free Solid";
+}
+
+/* ── MODERN LIGHTER SEMI-FLAT PALETTES (NO RED CONFLICTS) ── */
+
+/* Vibrant Emerald Green */
+.btn-add {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-border-color: #1e8449;
+    -fx-border-radius: 3px;
+}
+
+/* Electric Fuchsia Purple (Shifted from Red) */
+.btn-stop {
+    -fx-background-color: linear-gradient(to bottom, #bb8fce, #9b59b6);
+    -fx-border-color: #7d3c98;
+    -fx-border-radius: 3px;
+}
+
+/* Vibrant Sky Blue */
+.btn-resume {
+    -fx-background-color: linear-gradient(to bottom, #85c1e9, #3498db);
+    -fx-border-color: #2471a3;
+    -fx-border-radius: 3px;
+}
+
+/* Bright Honey Amber (Shifted from Red-Orange) */
+.btn-clear {
+    -fx-background-color: linear-gradient(to bottom, #f8c471, #f39c12);
+    -fx-border-color: #b9770e;
+    -fx-border-radius: 3px;
+}
+
+/* Vivid Warning Orange (Shifted from Red) */
+.btn-clear-all {
+    -fx-background-color: linear-gradient(to bottom, #f5b041, #e67e22);
+    -fx-border-color: #a04000;
+    -fx-border-radius: 3px;
+}
+
+/* Light Platinum Silver */
+.btn-folder {
+    -fx-background-color: linear-gradient(to bottom, #d5dbdb, #b2babb);
+    -fx-border-color: #7f8c8d;
+    -fx-border-radius: 3px;
+}
+
+/* Pastel Orchid Purple */
+.btn-theme {
+    -fx-background-color: linear-gradient(to bottom, #d7bde2, #af7ac5);
+    -fx-border-color: #6c3483;
+    -fx-border-radius: 3px;
+}
+
+/* Light Cobalt Blue (Assigned Bluish Scheme) */
+.btn-scheduler {
+    -fx-background-color: linear-gradient(to bottom, #76d7c4, #1abc9c);
+    -fx-border-color: #117a65;
+    -fx-border-radius: 3px;
+}
+
+/* Soft Slate Steel */
+.btn-settings {
+    -fx-background-color: linear-gradient(to bottom, #aeb6bf, #85929e);
+    -fx-border-color: #5d6d7e;
+    -fx-border-radius: 3px;
+}
+
+/* Soft Lemon Sun Yellow */
+.btn-coffee {
+    -fx-background-color: linear-gradient(to bottom, #f9e79f, #f4d03f);
+    -fx-border-color: #b7950b;
+    -fx-border-radius: 3px;
+}
+
+/* Bright Crimson Red (Assigned Unique Reddish Scheme) */
+.btn-exit {
+    -fx-background-color: linear-gradient(to bottom, #f1948a, #ec7063);
+    -fx-border-color: #b03a2e;
+    -fx-border-radius: 3px;
+}
+
+/* ── Main Status Bar Container ── */
+.status-bar {
+    -fx-background-color: #252526; 
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1px 0 0 0;  
+    -fx-min-height: 28px;
+    -fx-max-height: 28px;
+}
+
+.status-bar .status-bar-label {
+    -fx-text-fill: #b0b0b0;         
+    -fx-font-family: 'Consolas', 'Courier New', monospace; 
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;          
+    -fx-letter-spacing: 0.08em;    
+}
+
+.status-bar .status-bar-label:hover {
+    -fx-text-fill: #ffffff;        
+}
+
+.status-bar .status-bar-system {
+    -fx-text-fill: #81c784;        
+    -fx-font-weight: bold;
+    -fx-background-color: #1b2e1e; 
+    -fx-padding: 1px 6px;
+    -fx-background-radius: 3px;
+    -fx-border-color: #25412a;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+}
+
+/* ── SEARCH PANEL ── */
+.search-panel-row {
+    -fx-padding: 8px 15px 8px 15px;
+    -fx-background-color: #252526;   
+    -fx-border-color: #1e1e1e;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.search-container {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #3e3e42;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 0 12px 0 12px;
+    -fx-min-height: 34px;
+    -fx-max-height: 34px;
+}
+
+.search-container:hover {
+    -fx-background-color: #333333;
+    -fx-border-color: #45454a;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #777777;
+    -fx-font-size: 13px;
+    -fx-padding: 0;
+}
+
+.search-field:focused {
+    -fx-background-color: transparent;
+}
+
+.icon-font-muted {
+    -fx-font-family: "Font Awesome 7 Free Solid";
+    -fx-text-fill: #777777;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+}
+
+/* ── SCHEDULER DIALOG ───────────────────────────────── */
+.scheduler-day-btn {
+    -fx-background-color: #333337;
+    -fx-border-color: #555559;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #e0e0e0;
+    -fx-cursor: hand;
+    -fx-padding: 4 8;
+    -fx-font-size: 11px;
+}
+.scheduler-day-btn:selected {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-border-color: #1f618d;
+}
+.scheduler-time-spinner .text-field {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: CENTER;
+    -fx-font-family: "Consolas","Courier New",monospace;
+    -fx-font-size: 15px;
+}
+
+/* ==========================================
+   CONTEXT MENU PLATFORM AND ITEM STYLING
+   ========================================== */
+
+.context-menu {
+    -fx-background-color: #2d2d30;
+    -fx-background-radius: 6px;
+    -fx-border-color: #3f3f46;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.45), 8, 0, 0, 4);
+    -fx-padding: 5px 1px 5px 1px;
+}
+
+.context-menu .separator .line {
+    -fx-border-color: #3f3f46;
+    -fx-border-width: 1px 0 0 0;
+    -fx-margin: 4px 6px 4px 6px;
+}
+
+.context-menu .menu-item {
+    -fx-padding: 6px 16px 6px 10px;
+    -fx-background-color: transparent;
+}
+
+.context-menu .menu-item .label {
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #004b75; /* Balanced deep table row accent profile */
+}
+
+.context-menu .menu-item:focused .label {
+    -fx-text-fill: #ffffff; 
+}
+
+.context-menu .menu-item:disabled {
+    -fx-opacity: 0.4;
+}
+.context-menu .menu-item:disabled .label {
+    -fx-text-fill: #777777;
+}
+
+/* ─── CONTEXT MENU ICON PROFILE ─── */
+.context-menu-icon {
+    -fx-font-family: "Font Awesome 7 Free Solid"; 
+    -fx-font-size: 13px;          
+    -fx-min-width: 20px;            
+    -fx-alignment: CENTER_LEFT;
+}
+
+.context-menu .menu-item:disabled .context-menu-icon {
+    -fx-text-fill: #777777 !important;
+}
+
+/* ─── ACCENT COLOR PALETTES ─── */
+.context-menu .menu-item .icon-menu-green {
+    -fx-text-fill: #2ecc71 !important; /* Vibrant Action Green */
+}
+
+.context-menu .menu-item .icon-menu-red {
+    -fx-text-fill: #e74c3c !important; /* Destructive/Stop Red */
+}
+
+.context-menu .menu-item .icon-menu-blue {
+    -fx-text-fill: #3498db !important; /* Navigation Blue */
+}
+
+.context-menu .menu-item .icon-menu-orange {
+    -fx-text-fill: #e67e22 !important; /* Attention/Warning Amber */
+}
+
+.context-menu .menu-item .icon-menu-gray {
+    -fx-text-fill: #7f8c8d !important; /* Balanced Contrast Gray */
+}
+
+/* ─── SELECTION HOVER ICON OVERRIDE ─── */
+.context-menu .menu-item:focused .context-menu-icon {
+    -fx-brightness: 1.15; 
+}

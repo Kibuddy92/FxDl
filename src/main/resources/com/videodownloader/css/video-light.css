@@ -1,0 +1,743 @@
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #f9f9f9;
+}
+
+/* --- TABLE SECTION --- */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-base: #ffffff;
+    -fx-control-inner-background: #ffffff;
+    -fx-selection-bar: #e1f5fe;
+    -fx-selection-bar-text: black;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #333;
+    -fx-padding: 3 10 3 10; 
+}
+
+/* ── Table Header Borders ── */
+.table-view .column-header {
+    -fx-background-color: #eeeeee;
+    /* Define an explicit border color, width, and style */
+    -fx-border-color: #fafafa;    
+    -fx-border-width: 0 1px 1px 0; /* Top: 0px, Right: 1px (vertical grid), Bottom: 1px (horizontal split), Left: 0px */
+    -fx-border-style: solid;
+}
+
+/* Fix the very last column header's right border if it looks cut off */
+.table-view .column-header:last-visible {
+    -fx-border-width: 0 0 1px 0; /* Removes the trailing right border on the final column */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+    -fx-padding: 0 10 0 10;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f1f1f1;
+}
+
+#speedCol .label, #sizeCol .label, #statusCol .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ICONS */
+.icon-label {
+    -fx-font-family: "Font Awesome 7 Free Solid";
+    -fx-font-size: 14px;
+}
+
+/* --- URL INPUT BAR --- */
+.url-container {
+    -fx-padding: 20 0 20 0;
+}
+
+.url-field-large {
+    -fx-pref-height: 35px;
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #dcdde1; 
+    -fx-border-width: 1 0 1 1; 
+    -fx-border-radius: 8 0 0 8;
+    -fx-background-radius: 8 0 0 8;
+    -fx-padding: 0 15 0 15;
+    -fx-focus-color: transparent;
+}
+
+.url-field-large:focused {
+    -fx-border-color: #27ae60;
+    -fx-border-width: 2 0 2 2;
+    -fx-effect: dropshadow(three-pass-box, rgba(39, 174, 96, 0.1), 5, 0, 0, 0);
+}
+
+.url-button-large {
+    -fx-pref-height: 35px;
+    -fx-min-width: 140px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 0 8 8 0;
+    -fx-border-radius: 0 8 8 0;
+    -fx-cursor: hand;
+}
+
+/* --- PROGRESS BAR TRACK --- */
+.progress-bar .track {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 3;
+    /* This creates the 'border' effect around the bar */
+    -fx-background-insets: 0; 
+    /* This adds the internal padding so the bar doesn't touch the track edges */
+    -fx-padding: 10; 
+}
+
+/* --- THE GLOSSY BAR --- */
+.progress-bar .bar {
+    -fx-background-radius: 3;
+    -fx-background-insets: 0;
+    /* The Glossy Overlay */
+    -fx-background-color: 
+        linear-gradient(to bottom, 
+            rgba(255,255,255,0.4) 0%, 
+            rgba(255,255,255,0.1) 50%, 
+            rgba(0,0,0,0.05) 51%, 
+            rgba(0,0,0,0.1) 100%),
+        #3498db; /* Default Blue */
+}
+
+/* --- STATE COLORS (SHINY & PADDED) --- */
+.progress-bar-downloading .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(0,0,0,0.1)),
+        linear-gradient(to bottom, #5dade2, #2e86c1);
+}
+
+.progress-bar.state-connecting .bar {
+    -fx-background-color: linear-gradient(to bottom, #7EC8E3, #2E86C1);
+}
+
+/* Muted Slate-Grey theme for the Stopped / Paused state */
+.progress-bar-stopped .bar {
+    -fx-background-color: 
+        /* Layer 1: Global glossy reflection sheen overlay */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.12)),
+        /* Layer 2: Warm caramel-tan gradient base */
+        linear-gradient(to bottom, #BCAAA4, #8D6E63) !important;
+}
+
+.progress-bar-completed .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.1)),
+        linear-gradient(to bottom, #58d68d, #1e8449) !important;
+}
+
+.progress-bar-failed .bar {
+    -fx-background-color: 
+        linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.1)),
+        linear-gradient(to bottom, #ec7063, #c0392b) !important;
+}
+
+.progress-bar-merging .bar {
+    -fx-background-color: linear-gradient(to bottom, #9b59b6, #6c3483);
+}
+
+/* ── PROGRESS LABEL ───────────────────────────────── */
+.progress-label {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+    -fx-effect: dropshadow(one-pass-box, rgba(255,255,255,0.6), 1, 0, 0, 1);
+}
+
+/* ── DIALOGS (shared classes matching dark theme) ─── */
+.dialog-root { 
+    -fx-background-color: #fdfdfd; 
+}
+
+.dialog-pane {
+    -fx-padding: 0 0 8 0; 
+    -fx-background-color: #ffffff;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-padding: 8; 
+}
+
+.confirm-dialog-root {
+    -fx-padding: 0 0 8 0;
+}
+
+.dialog-pane .button {
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+    -fx-padding: 5 5;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+}
+
+/* Style for the "OK" / "Start Download" button (Blue/Green) */
+.dialog-pane .button:default {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-text-fill: white;
+    -fx-border-color: #219150;
+    -fx-border-radius: 5;
+}
+
+.dialog-pane .button:default:hover {
+    -fx-background-color: #2ecc71;
+    -fx-effect: dropshadow(three-pass-box, rgba(46, 204, 113, 0.4), 10, 0, 0, 0);
+}
+
+/* Style for the "Cancel" / "Close" button (Red) */
+.dialog-pane .button:cancel {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-text-fill: white;
+    -fx-border-color: #a93226;
+    -fx-border-radius: 3;
+}
+
+.dialog-pane .button:cancel:hover {
+    -fx-background-color: #ff5e4d;
+    -fx-effect: dropshadow(three-pass-box, rgba(231, 76, 60, 0.4), 10, 0, 0, 0);
+}
+
+.dialog-field-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+    -fx-font-size: 12px;
+}
+
+.dialog-mono-value {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #555;
+}
+
+.dialog-size-value {
+    -fx-text-fill: #27ae60;
+    -fx-font-weight: bold;
+}
+
+.dialog-value { 
+    -fx-text-fill: #2c3e50; 
+}
+
+.dialog-path-field {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dcdde1;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 6;
+}
+.dialog-path-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: white;
+}
+
+.btn-browse {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-padding: 6 12;
+}
+.btn-browse:hover { 
+    -fx-background-color: #dfe6e9; 
+}
+
+/* ── MANUAL ADD DIALOG ─────────────────────────────── */
+.manual-add-dialog {
+    -fx-background-color: #fdfdfd;
+}
+
+.manual-add-dialog .text-field {
+    -fx-font-family: 'Consolas', 'Monospace';
+    -fx-font-size: 12px;
+    -fx-padding: 6;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dcdde1;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-text-fill: #2c3e50;
+}
+
+.manual-add-dialog .text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: white;
+}
+
+.manual-add-dialog .header-panel {
+    -fx-background-color: #34495e;
+}
+.manual-add-dialog .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.manual-add-dialog .button {
+    -fx-cursor: hand;
+}
+.manual-add-dialog .button:default {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-weight: 500;
+}
+
+/* ── VIDEO DIALOGS ─────────────────────────────────── */
+.video-dialog-pane { -fx-background-color: #f5f5f5; }
+.video-dialog-content { -fx-background-color: #f5f5f5; }
+
+.video-dialog-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.video-dialog-subtitle {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+.dialog-section-cap {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.video-url-field {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+    -fx-text-fill: #2c3e50;
+    -fx-prompt-text-fill: #aaa;
+    -fx-border-color: #dcdde1;
+    -fx-border-width: 1 0 1 1;
+    -fx-background-radius: 4 0 0 4;
+    -fx-border-radius: 4 0 0 4;
+    -fx-pref-height: 42px;
+    -fx-padding: 0 10;
+}
+.video-url-field:focused {
+    -fx-border-color: #27ae60;
+    -fx-background-color: #fafffe;
+}
+
+.video-paste-btn {
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 0 4 4 0;
+    -fx-border-radius: 0 4 4 0;
+    -fx-border-color: #dcdde1;
+    -fx-border-width: 1;
+    -fx-pref-height: 42px;
+    -fx-padding: 0 18;
+}
+.video-paste-btn:hover { 
+    -fx-background-color: #dfe6e9; 
+}
+
+.video-quality-combo {
+    -fx-background-color: white;
+    -fx-border-color: #dcdde1;
+    -fx-border-radius: 4;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+.video-quality-combo .list-cell {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+}
+
+.dialog-btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #2980b9, #1a6fa8);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-min-width: 100px;
+    -fx-pref-height: 34px;
+    -fx-padding: 0 24;
+    -fx-cursor: hand;
+}
+.dialog-btn-primary:hover {
+    -fx-background-color: #3498db;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.3), 8, 0, 0, 0);
+}
+
+.dialog-btn-cancel {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-min-width: 100px;
+    -fx-pref-height: 34px;
+    -fx-padding: 0 24;
+    -fx-cursor: hand;
+}
+.dialog-btn-cancel:hover {
+    -fx-background-color: #ff5e4d;
+    -fx-effect: dropshadow(three-pass-box, rgba(231,76,60,0.3), 8, 0, 0, 0);
+}
+
+/* ==========================================
+   TOOLBAR CONTAINMENT & SPACING MODIFICATIONS
+   ========================================== */
+.tool-bar {
+    -fx-padding: 20px 15px 20px 15px;
+    -fx-spacing: 8px; 
+}
+
+.tool-bar .separator:vertical .line {
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-width: 0 1 0 0;
+    -fx-min-height: 24px;
+}
+
+/* ==========================================
+   UNIFORM LARGE SQUARE BUTTON GEOMETRY
+   ========================================== */
+.toolbar-btn {
+    -fx-min-width: 38px;
+    -fx-max-width: 38px;
+    -fx-min-height: 38px;
+    -fx-max-height: 38px;
+    -fx-alignment: CENTER;
+    -fx-content-display: GRAPHIC_ONLY;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 4, 0, 0, 1.5);
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.toolbar-btn:hover {
+    -fx-brightness: 1.15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.45), 5, 0, 0, 1.5);
+}
+
+.toolbar-btn:pressed {
+    -fx-brightness: 0.85;
+    -fx-translate-y: 1px;
+}
+
+.toolbar-btn .icon-font-white {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px; 
+    -fx-alignment: CENTER;
+    -fx-font-family: "Font Awesome 7 Free Solid";
+}
+
+/* ── LIGHTER, MODERN SEMI-FLAT PALETTE (NO RED DUPLICATION) ── */
+
+/* Vibrant Emerald Green */
+.btn-add {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-border-color: #1e8449;
+    -fx-border-radius: 3px;
+}
+
+/* Electric Fuchsia / Neon Purple (Changed from Red) */
+.btn-stop {
+    -fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad);
+    -fx-border-color: #6c3483;
+    -fx-border-radius: 3px;
+}
+
+/* Vibrant Sky Blue */
+.btn-resume {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #3498db);
+    -fx-border-color: #2471a3;
+    -fx-border-radius: 3px;
+}
+
+/* Bright Honey Yellow (Changed from Reddish-Orange) */
+.btn-clear {
+    -fx-background-color: linear-gradient(to bottom, #f5b041, #f39c12);
+    -fx-border-color: #b9770e;
+    -fx-border-radius: 3px;
+}
+
+/* Vivid Safety Orange (Changed from Dark Red) */
+.btn-clear-all {
+    -fx-background-color: linear-gradient(to bottom, #e67e22, #d35400);
+    -fx-border-color: #a04000;
+    -fx-border-radius: 3px;
+}
+
+/* Light Silver Gray */
+.btn-folder {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-border-color: #7f8c8d;
+    -fx-border-radius: 3px;
+}
+
+/* Pastel Orchid Purple */
+.btn-theme {
+    -fx-background-color: linear-gradient(to bottom, #af7ac5, #9b59b6);
+    -fx-border-color: #7d3c98;
+    -fx-border-radius: 3px;
+}
+
+/* Light Cobalt Blue (Assigned Bluish Scheme) */
+.btn-scheduler {
+    -fx-background-color: linear-gradient(to bottom, #5499c7, #2980b9);
+    -fx-border-color: #21618c;
+    -fx-border-radius: 3px;
+}
+
+/* Soft Slate Steel */
+.btn-settings {
+    -fx-background-color: linear-gradient(to bottom, #85929e, #5d6d7e);
+    -fx-border-color: #34495e;
+    -fx-border-radius: 3px;
+}
+
+/* Soft Sun Yellow */
+.btn-coffee {
+    -fx-background-color: linear-gradient(to bottom, #f7dc6f, #f1c40f);
+    -fx-border-color: #b7950b;
+    -fx-border-radius: 3px;
+}
+
+/* Bright Crimson Red (Assigned Reddish Scheme) */
+.btn-exit {
+    -fx-background-color: linear-gradient(to bottom, #ec7063, #e74c3c);
+    -fx-border-color: #b03a2e;
+    -fx-border-radius: 3px;
+}
+
+
+/* ── Main Status Bar Container ── */
+.status-bar {
+    -fx-background-color: #f1f5f9; 
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1px 0 0 0;  
+    -fx-min-height: 28px;
+    -fx-max-height: 28px;
+}
+
+.status-bar .status-bar-label {
+    -fx-text-fill: #334155;        
+    -fx-font-family: 'Consolas', 'Courier New', monospace; 
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;          
+    -fx-letter-spacing: 0.08em;    
+}
+
+.status-bar .status-bar-label:hover {
+    -fx-text-fill: #0f172a;        
+}
+
+.status-bar .status-bar-system {
+    -fx-text-fill: #15803d;        
+    -fx-font-weight: bold;
+    -fx-background-color: #dcfce7; 
+    -fx-padding: 1px 6px;
+    -fx-background-radius: 3px;
+    -fx-border-color: #bbf7d0;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+}
+
+/* ==========================================================================
+   SETTINGS FOOTER BUTTONS (FORCED ACCENTS)
+   ========================================================================== */
+
+/* Bluish Save Button Override */
+.button.settings-save-button {
+    -fx-background-color: linear-gradient(to bottom, #3498db 0%, #2980b9 45%, #2471a3 50%, #1b4f72 100%) !important;
+    -fx-border-color: #154e75 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: bold !important;
+}
+
+.button.settings-save-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2 0%, #3498db 45%, #2e86c1 50%, #21618c 100%) !important;
+    -fx-border-color: #1b4f72 !important;
+}
+
+/* Reddish Cancel Button Override */
+.button.settings-cancel-button {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c 0%, #c0392b 45%, #a93226 50%, #7b241c 100%) !important;
+    -fx-border-color: #641e16 !important;
+    -fx-text-fill: #f5b7b1 !important;
+    -fx-font-weight: 500 !important;
+}
+
+.button.settings-cancel-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ec7063 0%, #e74c3c 45%, #cb4335 50%, #943126 100%) !important;
+    -fx-border-color: #7b241c !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+/* ── SEARCH PANEL ── */
+.search-panel-row {
+    -fx-padding: 8px 15px 8px 15px;
+    -fx-background-color: #f3f3f3;   
+    -fx-border-color: #c4c4c4;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.search-container {
+    -fx-background-color: #e9e9e9;
+    -fx-border-color: #ebebeb;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 0 12px 0 12px;
+    -fx-min-height: 34px;
+    -fx-max-height: 34px;
+}
+
+.search-container:hover {
+    -fx-background-color: #eaecea;
+    -fx-border-color: #f2f5f0;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c3e50;
+    -fx-prompt-text-fill: #9ca3af;
+    -fx-font-size: 13px;
+    -fx-padding: 0;
+}
+
+.search-field:focused {
+    -fx-background-color: transparent;
+}
+
+.icon-font-muted {
+    -fx-font-family: "Font Awesome 7 Free Solid";
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+}
+
+/* ── SCHEDULER DIALOG ───────────────────────────────── */
+.scheduler-day-btn {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-padding: 4 8;
+    -fx-font-size: 11px;
+}
+.scheduler-day-btn:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-border-color: #2980b9;
+}
+.scheduler-time-spinner .text-field {
+    -fx-alignment: CENTER;
+    -fx-font-family: "Consolas","Courier New",monospace;
+    -fx-font-size: 15px;
+}
+
+/* ==========================================
+   CONTEXT MENU PLATFORM AND ITEM STYLING
+   ========================================== */
+
+/* The actual window housing the context menu rows */
+.context-menu {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    /* Soft light-mode shadow overlay */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 8, 0, 0, 4);
+    -fx-padding: 5px 1px 5px 1px;
+}
+
+/* Context menu separation lines styling adjustments */
+.context-menu .separator .line {
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1px 0 0 0;
+    -fx-margin: 4px 6px 4px 6px;
+}
+
+/* Base item row configuration parameters */
+.context-menu .menu-item {
+    -fx-padding: 6px 16px 6px 10px;
+    -fx-background-color: transparent;
+}
+
+/* Typography styles applied to standard label texts inside items */
+.context-menu .menu-item .label {
+    -fx-text-fill: #374151;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+/* Hover / Focus selection layout styles */
+.context-menu .menu-item:focused {
+    -fx-background-color: #e1f5fe; /* Matches table row selection color accent (.table-view) */
+}
+
+.context-menu .menu-item:focused .label {
+    -fx-text-fill: #0288d1; /* Sharp blue accent layout response text color */
+}
+
+/* Muted visual appearance constraints for disabled items */
+.context-menu .menu-item:disabled {
+    -fx-opacity: 0.5;
+}
+.context-menu .menu-item:disabled .label {
+    -fx-text-fill: #9ca3af;
+}
+
+/* ─── CONTEXT MENU ICON PROFILE ─── */
+.context-menu-icon {
+    /* Using your verified light-theme font family asset descriptor */
+    -fx-font-family: "Font Awesome 7 Free Solid"; 
+    -fx-font-size: 13px;          
+    -fx-min-width: 20px;            
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Disabled item icons safely override to standard layout gray */
+.context-menu .menu-item:disabled .context-menu-icon {
+    -fx-text-fill: #9ca3af !important;
+}
+
+/* ─── ACCENT COLOR PALETTES ─── */
+.context-menu .menu-item .icon-menu-green {
+    -fx-text-fill: #2ecc71 !important; /* Vibrant Action Green */
+}
+
+.context-menu .menu-item .icon-menu-red {
+    -fx-text-fill: #e74c3c !important; /* Destructive/Stop Red */
+}
+
+.context-menu .menu-item .icon-menu-blue {
+    -fx-text-fill: #3498db !important; /* Navigation Blue */
+}
+
+.context-menu .menu-item .icon-menu-orange {
+    -fx-text-fill: #e67e22 !important; /* Attention/Warning Amber */
+}
+
+.context-menu .menu-item .icon-menu-gray {
+    -fx-text-fill: #7f8c8d !important; /* Balanced Contrast Gray */
+}
+
+/* ─── SELECTION HOVER ICON OVERRIDE ─── */
+/* Keep your colored icons crisp and recognizable on selection by keeping their text color fill intact */
+.context-menu .menu-item:focused .context-menu-icon {
+    /* Retains distinct semantic colored accent look on row selection */
+    -fx-brightness: 0.9; 
+}
