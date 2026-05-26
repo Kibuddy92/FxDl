@@ -38,6 +38,11 @@ Because this application functions as a localized graphical controller utility, 
 ### 1. Structure the Project Directory
 Ensure your execution workspace directory is mapped precisely as follows before compiling or launching the Java application:
 
+## Screenshots
+<img width="1366" height="768" alt="FxDl Add Video URL dialog" src="https://github.com/user-attachments/assets/223cb46b-0fb0-46e2-92ee-4feb2c21a874" />
+<img width="1366" height="768" alt="FxDl Homepage dark mode" src="https://github.com/user-attachments/assets/720ea45a-3f8b-4560-a226-b49cd1d05aa5" />
+
+
 ```text
 fxvideo-download-manager/
 ├── bin/
